@@ -8,6 +8,6 @@
 Download: https://github.com/leux0/armbian-ht2-images/releases/latest
 
 
-# 解决git action发布失败报错：Error: Resource not accessible by integration
+#### 如何解决git action发布失败报错：Error: Resource not accessible by integration
 
 > 项目的Settings -> Actions -> General -> Workflow permissions -> 选择Read and write permissions
