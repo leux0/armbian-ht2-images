@@ -40,7 +40,7 @@ runs:
           echo "desktop-environment=xfce" >> $GITHUB_ENV
           echo "desktop-environment-config-name=config_base" >> $GITHUB_ENV
           echo "expert=no" >> $GITHUB_ENV
-          echo "desktop_appgroups_selected=\"3dsupport chromium-browser vim notepadqq\"" >> $GITHUB_ENV
+          echo "desktop_appgroups_selected=\"3dsupport chromium-browser vim-tiny notepadqq\"" >> $GITHUB_ENV
         fi
     - name: Build
       shell: bash
