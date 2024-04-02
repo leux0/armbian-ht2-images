@@ -1,6 +1,6 @@
 diff -uprN a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts
---- a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts	2024-03-09 22:57:22.266461600 +0800
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts	2024-03-09 23:06:56.922483900 +0800
+--- a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts
 @@ -169,6 +169,8 @@
  		regulator-always-on;
  		regulator-boot-on;
@@ -10,10 +10,7 @@ diff -uprN a/arch/arm64/boot/dts/rockchip/rk3528-hinlink-ht2.dts b/arch/arm64/bo
  		pwm-supply = <&vcc5v0_sys>;
  		status = "okay";
  	};
-diff -uprN a/scripts/dtc/include-prefixes/arm64/rockchip/rk3528-hinlink-ht2.dts b/scripts/dtc/include-prefixes/arm64/rockchip/rk3528-hinlink-ht2.dts
---- a/scripts/dtc/include-prefixes/arm64/rockchip/rk3528-hinlink-ht2.dts	2024-03-09 22:57:22.266461600 +0800
-+++ b/scripts/dtc/include-prefixes/arm64/rockchip/rk3528-hinlink-ht2.dts	2024-03-09 23:06:56.922483900 +0800
-@@ -169,6 +169,8 @@
+@@ -183,6 +185,8 @@
  		regulator-always-on;
  		regulator-boot-on;
  		regulator-settling-time-up-us = <250>;
@@ -22,3 +19,33 @@ diff -uprN a/scripts/dtc/include-prefixes/arm64/rockchip/rk3528-hinlink-ht2.dts 
  		pwm-supply = <&vcc5v0_sys>;
  		status = "okay";
  	};
+diff -uprN a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -1017,16 +1017,16 @@
+ 			     <GIC_SPI 93 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_SPI 90 IRQ_TYPE_LEVEL_HIGH>,
+ 			     <GIC_SPI 91 IRQ_TYPE_LEVEL_HIGH>;
+-		interrupt-names = "Mali_GP_IRQ",
+-				  "Mali_GP_MMU_IRQ",
+-				  "IRQPP",
+-				  "Mali_PP0_IRQ",
+-				  "Mali_PP0_MMU_IRQ",
+-				  "Mali_PP1_IRQ",
+-				  "Mali_PP1_MMU_IRQ";
+-		clocks = <&scmi_clk SCMI_CLK_GPU>, <&cru ACLK_GPU_MALI>,
+-			 <&cru PCLK_GPU_ROOT>;
+-		clock-names = "clk_mali", "aclk_gpu_mali", "pclk_gpu";
++		interrupt-names = "gp",
++				  "gpmmu",
++				  "pp",
++				  "pp0",
++				  "ppmmu0",
++				  "pp1",
++				  "ppmmu1";
++		clocks = <&cru ACLK_GPU_MALI>, <&cru ACLK_GPU_MALI>;
++						 
++		clock-names = "bus", "core";
+ 		assigned-clocks = <&scmi_clk SCMI_CLK_GPU>;
+ 		assigned-clock-rates = <300000000>;
+ 		power-domains = <&power RK3528_PD_GPU>;
